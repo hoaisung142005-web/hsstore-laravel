@@ -114,6 +114,11 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     // Customers
     Route::name('ad.')->group(function () {
         Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
+        Route::get('/customers/create', [CustomerController::class, 'create'])->name('customers.create');
+        Route::get('/customers/edit', [CustomerController::class, 'create'])->name('customers.edit');
+        Route::get('/customers/destroy', [CustomerController::class, 'create'])->name('customers.destroy');
+
+        Route::post('/customers/store', [CustomerController::class, 'store'])->name('customers.store');
         Route::post('/logout', [UserController::class, 'logout'])->name('logout');
         Route::get('/changepass', [UserController::class, 'showChangePassForm'])->name('changepass.form');
         Route::post('/changepass', [UserController::class, 'changepass'])->name('changepass');
