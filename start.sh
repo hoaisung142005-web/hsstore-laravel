@@ -14,6 +14,12 @@ chmod -R 775 storage bootstrap/cache || true
 echo "⏳ Waiting for database to be ready..."
 sleep 10
 
+echo "🔍 Checking DB connection variables..."
+echo "DB_HOST=$DB_HOST"
+echo "DB_DATABASE=$DB_DATABASE"
+echo "DB_USERNAME=$DB_USERNAME"
+echo "DB_PASSWORD=$DB_PASSWORD"
+
 echo "📦 Running migrations and seeders..."
 php artisan migrate --force || true
 php artisan db:seed --class=ProductsTableSeeder --force || true
